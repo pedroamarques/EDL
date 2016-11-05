@@ -9,9 +9,9 @@ function love.load()
   diCores = {}
   score = 0
   diCores={}
+  diCores={240, 248, 255} --red, green, blue
   -- trabalho 06
-  -- diCores é um dicionario de criação construtor
-  diCores={["r"]=240, ["g"] = 248, ["b"] = 255}
+  -- diCores é usado como uma tupla, já que seus elementos são imutáveis e serão acessados com indices numéricos
   
   speed = 3
   level = 10
@@ -24,11 +24,11 @@ function love.draw(dt)
   love.graphics.setColor( 135, 206, 250)
   love.graphics.print("Pontos: " .. score, 60, 60)
 	love.graphics.print("level" .. creu, 75, 75)	
-  love.graphics.setColor(diCores["r"], diCores["g"], diCores["b"])
+  love.graphics.setColor(diCores[1], diCores[2], diCores[3])
   love.graphics.rectangle("fill", playerx, playery, 60, 60)
 
   -- trabalho 06
-  -- retangle é enum pois todos os valores possiveis de retangle são passados 
+  -- love.graphics.rectangle é enum pois todos os valores possiveis de rectangle são passados 
   for i, enemy in ipairs(enemies) do
 	 love.graphics.setColor( 255, 160, 122)
          love.graphics.circle("fill", enemy.x, enemy.y, 20)
